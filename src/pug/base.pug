@@ -272,6 +272,7 @@ html(class=html.classList)&attributes(html.attrs)
 	body(class=body.classList)&attributes(body.attrs)
 		block body-start
 		block content
+		include main.pug
 		block scripts
 			script(src=`${baseDir}js/vendor.js?v=${Date.now()}`)
 			script(src=`${baseDir}js/main.js?v=${Date.now()}`)
