@@ -1,0 +1,44 @@
+.checkbox {
+    color: #000000;
+    font-family: $font-title;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    position: relative;
+    padding-left: 32px;
+
+    &__pseudo-input {
+        width: 19px;
+        height: 18px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-image: url("../images/checkbox.png");
+        background-size: contain;
+        background-position: 50% 50%;
+    }
+
+    &__input:checked + &__pseudo-input {
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -5px;
+            bottom: 2px;
+            width: 21px;
+            height: 27px;
+            background-image: url('../images/checkbox-tick.png');
+        }
+    }
+
+    &__input:focus ~ &__text {
+        text-decoration: underline;
+        text-decoration-color: $color-accent;
+    }
+
+    a {
+        color: $color-accent;
+    }
+}

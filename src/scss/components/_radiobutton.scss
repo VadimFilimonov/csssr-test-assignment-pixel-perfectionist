@@ -1,0 +1,32 @@
+.radiobutton {
+    color: #000000;
+    font-family: $font-title;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    
+    &__pseudo-input {
+        width: 28px;
+        height: 28px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-image: url("../images/radiobutton.png");
+        background-size: contain;
+        background-position: 50% 50%;
+    }
+
+    &__input:checked + &__pseudo-input {
+        background-image: url("../images/radiobutton-active.png");
+    }
+
+    &__input:focus ~ &__text {
+        text-decoration: underline;
+        text-decoration-color: $color-accent;
+    }
+}

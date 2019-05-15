@@ -1,0 +1,25 @@
+.extra-info {
+    &__subtitle {
+        margin-bottom: 15px;
+    }
+
+    &__description {
+        margin-bottom: 35px;
+    }
+
+    &__checkboxes-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__checkboxex-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}

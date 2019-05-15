@@ -1,0 +1,19 @@
+.container {
+    background-color: #797979;
+    
+    &__inner {
+        max-width: 1000px;
+        padding: 70px 120px 95px 110px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: #eccc99;
+        background-image: url("../images/background.jpg");
+        background-repeat: repeat-y;
+        background-position: 50% 0%;
+        position: relative;
+    }
+
+    &__header {
+        margin-bottom: 40px;
+    }
+}

@@ -1,0 +1,19 @@
+.future-plan {
+    &__subtitle {
+        margin-bottom: 10px;
+    }
+
+    &__description {
+        margin-bottom: 20px;
+    }
+
+    &__input-group {
+        display: flex;
+    }
+
+    &__label {
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    &__stamp {
+        position: absolute;
+        top: 60px;
+        right: 60px;
+    }
+}

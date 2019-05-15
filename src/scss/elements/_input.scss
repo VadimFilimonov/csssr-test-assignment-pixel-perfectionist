@@ -1,0 +1,44 @@
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding-bottom: 10px;
+    font-size: 30px;
+    line-height: 1;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid $color-title;
+    outline: none;
+    color: $color-text;
+    font-family: $font-input;
+
+    &:focus {
+        border-color: #2c448b;
+    }
+
+    &::placeholder {
+        color: #231f20;
+    }
+}
+
+input[type="text"]::placeholder {
+    color: #231f20;
+}
+
+textarea {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    border: none;
+    outline: none;
+    color: $color-text;
+    font-family: $font-input;
+    line-height: 2;
+    background-color: transparent;
+    background-image: url("../images/line.png");
+    background-position: -5px 80px;
+    background-repeat: repeat-y; 
+    overflow: hidden;
+    resize: none;
+    transition: 0.2s ease;
+}
