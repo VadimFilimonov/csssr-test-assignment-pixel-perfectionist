@@ -1,151 +1,169 @@
+- var aboutMeText = "Мне понравилась концепция и ценности CSSSR. Уверен, что это то место, где можно вырасти как специалист и принести пользу.";
+
 .container
     .container__inner
         header.header.container__header
             .logo.header__logo
-                img.logo__image(src="./images/logo.png")
+                img.logo__image(src="./images/logo.png" alt="CSSSR")
             .stamp.header__stamp
-                img.stamp__image(src="./images/stamp.png")
+                img.stamp__image(src="./images/stamp.png" alt="Секретно Заполнено собственноручно")
         main.main.container__main
             h1.title.main__title
                 img.title__image(src="./images/title.png" alt="Дело" title="Дело")
-            .basic-info.main__basic-info
-                .label-input.basic-info__row
-                    label.label-input__label Полное ФИО
-                    input.label-input__input(type="text" value="Филимонов Вадим Валерьевич")
-                .label-input.basic-info__row
-                    label.label-input__label Год рождения
-                    input.label-input__input(type="text" value="1994")
-                .label-input.basic-info__row
-                    label.label-input__label Место жительства
-                    input.label-input__input(type="text" value="г. Новокубанск, Россия")
-                .label-input.basic-info__row
-                    label.label-input__label Скайп
-                    input.label-input__input(type="text" value="philimonovvadim@gmail.com")
-                .label-input.basic-info__row
-                    label.label-input__label Почта
-                    input.label-input__input(type="email" value="philimonovvadim@gmail.com")
-            .extra-info.main__extra-info
-                h2.extra-info__subtitle.subtitle Расскажите о себе чекбоксами
-                p.extra-info__description.description
-                    | Отметьте чекбоксами пункты, которые соответствуют вашим скиллам. 
-                    | Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей. 
-                    | Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
-                .extra-info__checkboxes-group
-                    .extra-info__checkboxex-column
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text БЭМ/OOCSS
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Pug (Jade)
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Stylus/LESS/SASS
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Работаю с SVG
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Верстаю семантично
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Accessibility (A11Y)
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text ES2015/ES2016
-                    .extra-info__checkboxex-column
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Gulp/GRUNT
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Webpack
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Дружу с WebGL
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text jQuery
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Знаю/изучаю Angular
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Знаю/изучаю React
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Знаю/изучаю Node.js
-                    .extra-info__checkboxex-column
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Использую Git
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text С глазомером всё ок
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Читаю 
-                            a.extra-info__link(href="https://blog.csssr.ru" target="_blank") blog.csssr.ru
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" checked)
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text Я ленивый(-ая)
-                        label.extra-info__label.checkbox
-                            input.extra-info__input.checkbox__input.visually-hidden(type="checkbox")
-                            span.extra-info__pseudo-input.checkbox__pseudo-input
-                            span.extra-info__text.checkbox__text У меня хороший английский
-            .javascript-level.main__javascript-level
-                h2.javascript-level__subtitle.subtitle Уровень владения JavaScript
-                .javascript-level__slider.slider
-                    .slider__item Не владею
-                    .slider__item.slider__item--active Использую готовые решения
-                    .slider__item Использую готовые решения и умею их переделывать
-                    .slider__item Пишу сложный JS с нуля
-            .about-me.main__about-me
-                h2.about-me__subtitle.subtitle Расскажите о себе словами
-                p.about-me__description.description 
-                    | Напишите пару предложений, чем вас привлекла наша вакансия и чего вы ожидаете от работы в CSSSR.
-                    | Кстати, будет здорово, если при нехватке места для текста строки будут добавляться автоматически.
-                textarea.about-me__textarea.js-textarea(placeholder="Ну-ууу-уу...\nЭэээ..." rows="3" data-autoresize)
-            .future-plan.main__future-plan
-                h2.future-plan__subtitle.subtitle Какие у вас планы на будущее?
-                p.future-plan__description.description 
-                    | Этот ответ ни на что не повлияет. Не беда, если в будущем ваши планы поменяются.
-                .future-plan__input-group
-                    label.future-plan__label.radiobutton
-                        input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan")
-                        span.future-plan__pseudo-input.radiobutton__pseudo-input
-                        span.future-plan__text.radiobutton__text Верстать
-                    label.future-plan__label.radiobutton                   
-                        input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan" checked)
-                        span.future-plan__pseudo-input.radiobutton__pseudo-input
-                        span.future-plan__text.radiobutton__text Прокачиваться в JS
-                    label.future-plan__label.radiobutton
-                        input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan")
-                        span.future-plan__pseudo-input.radiobutton__pseudo-input
-                        span.future-plan__text.radiobutton__text Менеджерство
-                    label.future-plan__label.radiobutton
-                        input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan")
-                        span.future-plan__pseudo-input.radiobutton__pseudo-input
-                        span.future-plan__text.radiobutton__text Другое
-            .completion-date.main__completion-date
-                .label-input.completion-date__row
-                    label.label-input__label Дата заполнения
-                    input.label-input__input.label-input__input--small(type="text" value="15.05.2019")
+            form#form.form(method="get")
+                .basic-info.form__basic-info
+                    .label-input.basic-info__row
+                        label.label-input__label Полное ФИО
+                        input.label-input__input(type="text" value="Филимонов Вадим Валерьевич" name="full-name")
+                    .label-input.basic-info__row
+                        label.label-input__label Год рождения
+                        input.label-input__input(type="text" value="1994" name="year-birth")
+                    .label-input.basic-info__row
+                        label.label-input__label Место жительства
+                        input.label-input__input(type="text" value="г. Новокубанск, Россия" name="place-of-resident")
+                    .label-input.basic-info__row
+                        label.label-input__label Скайп
+                        input.label-input__input(type="text" value="philimonovvadim@gmail.com" name="skype")
+                    .label-input.basic-info__row
+                        label.label-input__label Почта
+                        input.label-input__input(type="email" value="philimonovvadim@gmail.com" name="email")
+                .extra-info.form__extra-info
+                    h2.extra-info__subtitle.subtitle Расскажите о себе чекбоксами
+                    p.extra-info__description.description
+                        | Отметьте чекбоксами пункты, которые соответствуют вашим скиллам. 
+                        | Кстати, отсутствие опыта не означает, что у вас меньше шансов стать одним из наших товарищей. 
+                        | Это означает, что вы будете получать те задачи, с которыми гарантировано будете справляться.
+                    .extra-info__checkboxes-group
+                        .extra-info__checkboxex-column
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="БЭМ/OOCSS" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text БЭМ/OOCSS
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Pug (Jade)" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Pug (Jade)
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Stylus/LESS/SASS" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Stylus/LESS/SASS
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Работаю с SVG")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Работаю с SVG
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Верстаю семантично" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Верстаю семантично
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Accessibility (A11Y)")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Accessibility (A11Y)
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="ES2015/ES2016")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text ES2015/ES2016
+                        .extra-info__checkboxex-column
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Gulp/GRUNT" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Gulp/GRUNT
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Webpack")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Webpack
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Дружу с WebGL")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Дружу с WebGL
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="jQuery" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text jQuery
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Знаю/изучаю Angular")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Знаю/изучаю Angular
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Знаю/изучаю React")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Знаю/изучаю React
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Знаю/изучаю Node.js")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Знаю/изучаю Node.js
+                        .extra-info__checkboxex-column
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Использую Git" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Использую Git
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="С глазомером всё ок" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text 
+                                    span С 
+                                    span глазомером 
+                                    span всё 
+                                    span ок
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Читаю" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Читаю 
+                                a.extra-info__link(href="https://blog.csssr.ru" target="_blank") blog.csssr.ru
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="Я ленивый(-ая)" checked)
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text Я ленивый(-ая)
+                            label.extra-info__label.checkbox
+                                input.extra-info__input.checkbox__input.visually-hidden(type="checkbox" name="extra-info" value="У меня хороший английский")
+                                span.extra-info__pseudo-input.checkbox__pseudo-input
+                                span.extra-info__text.checkbox__text У меня хороший английский
+                .javascript-level.form__javascript-level
+                    h2.javascript-level__subtitle.subtitle Уровень владения JavaScript
+                    .javascript-level__slider.slider
+                        input.slider__range(type="range" step="1" max="200")
+                        .slider__container
+                            label.slider__item
+                                input.visually-hidden(type="radio" name="javascript-level" value="Не владею" data-position="0") 
+                                span Не владею
+                            label.slider__item.slider__item--active
+                                input.visually-hidden(type="radio" name="javascript-level" value="Использую готовые решения" data-position="38" checked)
+                                span Использую готовые решения
+                            label.slider__item
+                                input.visually-hidden(type="radio" name="javascript-level" value="Использую готовые решения и умею их переделывать" data-position="99")
+                                span Использую готовые решения и умею их переделывать
+                            label.slider__item
+                                input.visually-hidden(type="radio" name="javascript-level" value="Пишу сложный JS с нуля" data-position="200")
+                                span Пишу сложный JS с нуля
+                .about-me.form__about-me
+                    h2.about-me__subtitle.subtitle Расскажите о себе словами
+                    p.about-me__description.description 
+                        | Напишите пару предложений, чем вас привлекла наша вакансия и чего вы ожидаете от работы в CSSSR.
+                        | Кстати, будет здорово, если при нехватке места для текста строки будут добавляться автоматически.
+                    textarea.about-me__textarea.js-textarea(placeholder="Ну-ууу-уу...\nЭэээ..." rows="3" data-autoresize) #{aboutMeText}
+                .future-plan.form__future-plan
+                    h2.future-plan__subtitle.subtitle Какие у вас планы на будущее?
+                    p.future-plan__description.description 
+                        | Этот ответ ни на что не повлияет. Не беда, если в будущем ваши планы поменяются.
+                    .future-plan__input-group
+                        label.future-plan__label.radiobutton
+                            input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan" value="Верстать")
+                            span.future-plan__pseudo-input.radiobutton__pseudo-input
+                            span.future-plan__text.radiobutton__text Верстать
+                        label.future-plan__label.radiobutton                   
+                            input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan" value="Прокачиваться в JS" checked)
+                            span.future-plan__pseudo-input.radiobutton__pseudo-input
+                            span.future-plan__text.radiobutton__text Прокачиваться в JS
+                        label.future-plan__label.radiobutton
+                            input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan" value="Менеджерство")
+                            span.future-plan__pseudo-input.radiobutton__pseudo-input
+                            span.future-plan__text.radiobutton__text Менеджерство
+                        label.future-plan__label.radiobutton
+                            input.future-plan__input.radiobutton__input.visually-hidden(type="radio" name="future-plan" value="Другое")
+                            span.future-plan__pseudo-input.radiobutton__pseudo-input
+                            span.future-plan__text.radiobutton__text Другое
+                .completion-date.form__completion-date
+                    .label-input.completion-date__row
+                        label.label-input__label Дата заполнения
+                        input.label-input__input.label-input__input--small(type="text" value="17.05.2019")
+                input.form__button.visually-hidden(type="submit" value="Отправить")
