@@ -109,37 +109,37 @@ function svgoConfig(minify = argv.minifySvg) {
 
 gulp.task('copy', () => {
 	return gulp.src([
-		'src/resources/**/*.*',
-		'src/resources/**/.*',
-		'!src/resources/**/.keep',
+		'app/resources/**/*.*',
+		'app/resources/**/.*',
+		'!app/resources/**/.keep',
 	], {
-		base: 'src/resources',
+		base: 'app/resources',
 		dot: true,
 	})
-		.pipe($.if(argv.cache, $.newer('build')))
+		.pipe($.if(argv.cache, $.newer('dist')))
 		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('build'));
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('images', () => {
-	return gulp.src('src/images/**/*.*')
-		.pipe($.if(argv.cache, $.newer('build/images')))
+	return gulp.src('app/images/**/*.*')
+		.pipe($.if(argv.cache, $.newer('dist/images')))
 		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('build/images'));
+		.pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('sprites:png', () => {
-	const spritesData = gulp.src('src/images/sprites/png/*.png')
+	const spritesData = gulp.src('app/images/sprites/png/*.png')
 		.pipe($.plumber({
 			errorHandler,
 		}))
 		.pipe($.if(argv.debug, $.debug()))
 		.pipe($.spritesmith({
 			cssName: '_sprites.scss',
-			cssTemplate: 'src/scss/_sprites.hbs',
+			cssTemplate: 'app/scss/_sprites.hbs',
 			imgName: 'sprites.png',
 			retinaImgName: 'sprites@2x.png',
-			retinaSrcFilter: 'src/images/sprites/png/*@2x.png',
+			retinaSrcFilter: 'app/images/sprites/png/*@2x.png',
 			padding: 2,
 		}));
 
@@ -150,14 +150,14 @@ gulp.task('sprites:png', () => {
 			}))
 			.pipe($.vinylBuffer())
 			.pipe($.imagemin())
-			.pipe(gulp.dest('build/images')),
+			.pipe(gulp.dest('dist/images')),
 		spritesData.css
-			.pipe(gulp.dest('src/scss'))
+			.pipe(gulp.dest('app/scss'))
 	);
 });
 
 gulp.task('sprites:svg', () => {
-	return gulp.src('src/images/sprites/svg/*.svg')
+	return gulp.src('app/images/sprites/svg/*.svg')
 		.pipe($.plumber({
 			errorHandler,
 		}))
@@ -172,18 +172,18 @@ gulp.task('sprites:svg', () => {
 		.pipe($.if(!argv.minifySvg, $.replace('><symbol', '>\n<symbol')))
 		.pipe($.if(!argv.minifySvg, $.replace('></svg', '>\n</svg')))
 		.pipe($.rename('sprites.svg'))
-		.pipe(gulp.dest('build/images'));
+		.pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('pug', () => {
 	if (!emittyPug) {
-		emittyPug = $.emitty.setup('src', 'pug', {
+		emittyPug = $.emitty.setup('app', 'pug', {
 			makeVinylFile: true,
 		});
 	}
 
 	if (!argv.cache) {
-		return gulp.src('src/*.pug')
+		return gulp.src('app/*.pug')
 			.pipe($.plumber({
 				errorHandler,
 			}))
@@ -191,12 +191,12 @@ gulp.task('pug', () => {
 			.pipe($.pug({
 				pretty: argv.minifyHtml ? false : '\t',
 			}))
-			.pipe(gulp.dest('build'));
+			.pipe(gulp.dest('dist'));
 	}
 
 	return new Promise((resolve, reject) => {
 		emittyPug.scan(global.emittyPugChangedFile).then(() => {
-			gulp.src('src/*.pug')
+			gulp.src('app/*.pug')
 				.pipe($.plumber({
 					errorHandler,
 				}))
@@ -205,7 +205,7 @@ gulp.task('pug', () => {
 				.pipe($.pug({
 					pretty: argv.minifyHtml ? false : '\t',
 				}))
-				.pipe(gulp.dest('build'))
+				.pipe(gulp.dest('dist'))
 				.on('end', resolve)
 				.on('error', reject);
 		});
@@ -214,8 +214,8 @@ gulp.task('pug', () => {
 
 gulp.task('scss', () => {
 	return gulp.src([
-		'src/scss/*.scss',
-		'!src/scss/_*.scss',
+		'app/scss/*.scss',
+		'!app/scss/_*.scss',
 	])
 		.pipe($.plumber({
 			errorHandler,
@@ -243,7 +243,7 @@ gulp.task('scss', () => {
 				}),
 		]))
 		.pipe($.sourcemaps.write('.'))
-		.pipe(gulp.dest('build/css'));
+		.pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('js', () => {
@@ -257,8 +257,8 @@ gulp.task('js', () => {
 
 gulp.task('lint:pug', () => {
 	return gulp.src([
-		'src/*.pug',
-		'src/pug/**/*.pug',
+		'app/*.pug',
+		'app/pug/**/*.pug',
 	])
 		.pipe($.plumber({
 			errorHandler,
@@ -269,8 +269,8 @@ gulp.task('lint:pug', () => {
 
 gulp.task('lint:scss', () => {
 	return gulp.src([
-		'src/scss/**/*.scss',
-		'!src/scss/vendor/**/*.scss',
+		'app/scss/**/*.scss',
+		'!app/scss/vendor/**/*.scss',
 	])
 		.pipe($.plumber({
 			errorHandler,
@@ -289,8 +289,8 @@ gulp.task('lint:scss', () => {
 gulp.task('lint:js', () => {
 	return gulp.src([
 		'*.js',
-		'src/js/**/*.js',
-		'!src/js/vendor/**/*.js',
+		'app/js/**/*.js',
+		'!app/js/vendor/**/*.js',
 	], {
 		base: '.',
 	})
@@ -305,7 +305,7 @@ gulp.task('lint:js', () => {
 });
 
 gulp.task('optimize:images', () => {
-	return gulp.src('src/images/**/*.*')
+	return gulp.src('app/images/**/*.*')
 		.pipe($.plumber({
 			errorHandler,
 		}))
@@ -322,39 +322,39 @@ gulp.task('optimize:images', () => {
 				quality: 80,
 			}),
 		]))
-		.pipe(gulp.dest('src/images'));
+		.pipe(gulp.dest('app/images'));
 });
 
 gulp.task('optimize:svg', () => {
-	return gulp.src('src/images/**/*.svg', {
-		base: 'src/images',
+	return gulp.src('app/images/**/*.svg', {
+		base: 'app/images',
 	})
 		.pipe($.plumber({
 			errorHandler,
 		}))
 		.pipe($.if(argv.debug, $.debug()))
 		.pipe($.svgmin(svgoConfig(false)))
-		.pipe(gulp.dest('src/images'));
+		.pipe(gulp.dest('app/images'));
 });
 
 gulp.task('watch', () => {
 	gulp.watch([
-		'src/resources/**/*.*',
-		'src/resources/**/.*',
+		'app/resources/**/*.*',
+		'app/resources/**/.*',
 	], gulp.series('copy'));
 
-	gulp.watch('src/images/**/*.*', gulp.series('images'));
+	gulp.watch('app/images/**/*.*', gulp.series('images'));
 
 	gulp.watch([
-		'src/images/sprites/png/*.png',
-		'src/scss/_sprites.hbs',
+		'app/images/sprites/png/*.png',
+		'app/scss/_sprites.hbs',
 	], gulp.series('sprites:png'));
 
-	gulp.watch('src/images/sprites/svg/*.svg', gulp.series('sprites:svg'));
+	gulp.watch('app/images/sprites/svg/*.svg', gulp.series('sprites:svg'));
 
 	gulp.watch([
-		'src/*.pug',
-		'src/pug/**/*.pug',
+		'app/*.pug',
+		'app/pug/**/*.pug',
 	], {
 		delay: 0,
 	}, gulp.series('pug'))
@@ -366,9 +366,9 @@ gulp.task('watch', () => {
 			}
 		});
 
-	gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
+	gulp.watch('app/scss/**/*.scss', gulp.series('scss'));
 
-	gulp.watch('src/js/**/*.js', gulp.series('js'));
+	gulp.watch('app/js/**/*.js', gulp.series('js'));
 });
 
 gulp.task('serve', () => {
@@ -385,10 +385,10 @@ gulp.task('serve', () => {
 			open: argv.open,
 			port: argv.port,
 			files: [
-				'./build/**/*',
+				'./dist/**/*',
 			],
 			server: {
-				baseDir: './build',
+				baseDir: './dist',
 				middleware,
 			},
 		});
@@ -405,8 +405,8 @@ gulp.task('zip', () => {
 	let minutes = now.getMinutes().toString().padStart(2, '0');
 
 	return gulp.src([
-		'build/**',
-		'src/**',
+		'dist/**',
+		'app/**',
 		'.babelrc',
 		'.editorconfig',
 		'.eslintignore',
@@ -435,7 +435,7 @@ gulp.task('lint', gulp.series(
 	'lint:js'
 ));
 
-gulp.task('build', gulp.parallel(
+gulp.task('dist', gulp.parallel(
 	'copy',
 	'images',
 	'sprites:png',
@@ -446,7 +446,7 @@ gulp.task('build', gulp.parallel(
 ));
 
 gulp.task('default', gulp.series(
-	'build',
+	'dist',
 	gulp.parallel(
 		'watch',
 		'serve'
