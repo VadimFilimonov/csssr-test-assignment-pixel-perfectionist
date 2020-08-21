@@ -1,74 +1,72 @@
 .checkbox {
-    color: #000000;
-    font-family: $font-title;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.25;
-    position: relative;
-    padding-left: 32px;
-    cursor: pointer;
-    
-    &__pseudo-input {
-        width: 19px;
-        height: 18px;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
-        background-image: url("../images/checkbox.png");
-        background-size: contain;
-        background-position: 50% 50%;
-    }
+	position: relative;
+	padding-left: 32px;
+	font-family: $font-title;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.25;
+	color: #000;
+	cursor: pointer;
 
-    &__input:checked + &__pseudo-input {
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            right: -5px;
-            bottom: 2px;
-            width: 21px;
-            height: 27px;
-            background-image: url('../images/checkbox-tick.png');
-        }
-    }
+	a {
+		color: $color-accent;
+	}
+}
 
-    &__input:focus ~ &__text {
-        text-decoration: underline;
-        text-decoration-color: $color-accent;
-    }
+.checkbox__pseudo-input {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	display: block;
+	width: 19px;
+	height: 18px;
+	background-image: url("../images/checkbox.png");
+	background-position: 50% 50%;
+	background-size: contain;
+	transform: translateY(-50%);
+}
 
-    &__text {
-        span {
-            position: relative;
-            transition: 0.2s ease;
+.checkbox__input:checked + .checkbox__pseudo-input::before {
+	content: "";
+	position: absolute;
+	right: -5px;
+	bottom: 2px;
+	display: block;
+	width: 21px;
+	height: 27px;
+	background-image: url("../images/checkbox-tick.png");
+}
 
-            &:nth-child(1) {
-                top: 1px;
-            }
+.checkbox__input:focus ~ .checkbox__text {
+	text-decoration: underline;
+	text-decoration-color: $color-accent;
+}
 
-            &:nth-child(2) {
-                top: 3px;
-            }
+.checkbox__text {
+	span {
+		position: relative;
+		transition: 0.2s ease;
 
-            &:nth-child(3) {
-                top: 5px;
-            }
+		&:nth-child(1) {
+			top: 1px;
+		}
 
-            &:nth-child(4) {
-                top: 7px;
-            }
-        }
+		&:nth-child(2) {
+			top: 3px;
+		}
 
-        &:hover {
-            span {
-                top: 0;
-            }
-        }
-    }
+		&:nth-child(3) {
+			top: 5px;
+		}
 
-    a {
-        color: $color-accent;
-    }
+		&:nth-child(4) {
+			top: 7px;
+		}
+	}
+
+	&:hover {
+		span {
+			top: 0;
+		}
+	}
 }

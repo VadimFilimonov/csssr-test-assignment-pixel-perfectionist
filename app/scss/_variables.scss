@@ -1,5 +1,5 @@
 // stylelint-disable scss/dollar-variable-empty-line-before
-@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic');
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=cyrillic");
 
 // COLORS
 $color-title: #2f1b15;
@@ -8,6 +8,6 @@ $color-input: #231f20;
 $color-accent: #1f5f97;
 
 // FONTS
-$font-title: "PT Sans", Arial, sans-serif;
-$font-text: "PT Sans", Arial, sans-serif;
-$font-input: 'Courier New';
+$font-text: "PT Sans", arial, sans-serif;
+$font-title: $font-text;
+$font-input: "Courier New";

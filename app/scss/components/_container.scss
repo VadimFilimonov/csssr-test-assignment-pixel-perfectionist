@@ -1,19 +1,19 @@
 .container {
-    background-color: #797979;
-    
-    &__inner {
-        max-width: 1000px;
-        padding: 70px 120px 95px 110px;
-        margin-right: auto;
-        margin-left: auto;
-        background-color: #eccc99;
-        background-image: url("../images/background.jpg");
-        background-repeat: repeat-y;
-        background-position: 50% 0%;
-        position: relative;
-    }
+	background-color: #797979;
+}
 
-    &__header {
-        margin-bottom: 40px;
-    }
+.container__inner {
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 70px 120px 95px 110px;
+	max-width: 1000px;
+	background-image: url("../images/background.jpg");
+	background-position: 50% 0%;
+	background-repeat: repeat-y;
+	background-color: #eccc99;
+}
+
+.container__header {
+	margin-bottom: 40px;
 }

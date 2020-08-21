@@ -4,13 +4,13 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+	margin: 0;
 }
 
 p {
-    margin: 0;
+	margin: 0;
 
-    &:not(:last-of-type) {
-        margin-bottom: 1em;
-    }
+	&:not(:last-of-type) {
+		margin-bottom: 1em;
+	}
 }

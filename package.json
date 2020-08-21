@@ -2,7 +2,10 @@
 	"name": "ninelines-template",
 	"version": "2.5.0",
 	"description": "Шаблон для разработки сайтов",
-	"scripts": {},
+	"scripts": {
+		"start": "gulp",
+		"build": "gulp dist"
+	},
 	"author": "Dmitry Artemov <d.artemov@9-lines.com>",
 	"license": "ISC",
 	"devDependencies": {

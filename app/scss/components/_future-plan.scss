@@ -1,19 +1,15 @@
-.future-plan {
-    &__subtitle {
-        margin-bottom: 10px;
-    }
+.future-plan__subtitle {
+	margin-bottom: 10px;
+}
 
-    &__description {
-        margin-bottom: 20px;
-    }
+.future-plan__description {
+	margin-bottom: 20px;
+}
 
-    &__input-group {
-        display: flex;
-    }
+.future-plan__input-group {
+	display: flex;
+}
 
-    &__label {
-        &:not(:last-child) {
-            margin-right: 20px;
-        }
-    }
+.future-plan__label:not(:last-child) {
+	margin-right: 20px;
 }

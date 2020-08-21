@@ -1,7 +1,3 @@
-.basic-info {
-    &__row {
-        &:not(:last-child) {
-            margin-bottom: 20px;
-        }
-    }
+.basic-info__row:not(:last-child) {
+	margin-bottom: 20px;
 }

@@ -1,41 +1,39 @@
-.form {
-    &__basic-info {
-        margin-bottom: 75px;
-    }
+.form__basic-info {
+	margin-bottom: 75px;
+}
 
-    &__extra-info {
-        margin-bottom: 65px;
-    }
+.form__extra-info {
+	margin-bottom: 65px;
+}
 
-    &__javascript-level {
-        margin-bottom: 40px;
-    }
+.form__javascript-level {
+	margin-bottom: 40px;
+}
 
-    &__about-me {
-        margin-bottom: 40px;
-    }
+.form__about-me {
+	margin-bottom: 40px;
+}
 
-    &__future-plan {
-        margin-bottom: 90px;
-    }
+.form__future-plan {
+	margin-bottom: 90px;
+}
 
-    &__button {
-        margin-top: 70px;
-        padding: 10px 15px;
-        font-size: 20px;
-        outline: none;
-        background-color: transparent;
-        border: 3px solid $color-title;
-        font-weight: 700;
-        font-family: $font-title;
+.form__button {
+	margin-top: 70px;
+	outline: none;
+	border: 3px solid $color-title;
+	padding: 10px 15px;
+	font-family: $font-title;
+	font-weight: 700;
+	font-size: 20px;
+	background-color: transparent;
+}
 
-        &:focus {
-            border-color: $color-accent;
-            color: $color-accent;
-        }
+.form__button:focus {
+	border-color: $color-accent;
+	color: $color-accent;
+}
 
-        &:hover {
-            background-color: rgba($color-title, 0.1);
-        }
-    }
+.form__button:hover {
+	background-color: rgba($color-title, 0.1);
 }
