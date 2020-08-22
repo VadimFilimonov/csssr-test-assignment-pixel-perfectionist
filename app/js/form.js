@@ -1,5 +1,16 @@
-var form = document.getElementById('form');
+let form;
 
-form.addEventListener('submit', function(evt) {
-    evt.preventDefault();
-});
+const findElements = () => {
+	form = document.getElementById('form');
+};
+
+const subscribe = () => {
+	form.addEventListener('submit', (event) => {
+		event.preventDefault();
+	});
+};
+
+export default function init() {
+	findElements();
+	subscribe();
+}
