@@ -1,4 +1,4 @@
-@mixin visually-hidden {
+.visually-hidden {
 	position: absolute !important;
 	overflow: hidden;
 	border: 0 !important;

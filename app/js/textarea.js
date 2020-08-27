@@ -1,3 +1,5 @@
+let textarea;
+
 function addAutoResize() {
 	document.querySelectorAll('[data-autoresize]').forEach((element) => {
 		element.style.boxSizing = 'border-box';
@@ -11,6 +13,17 @@ function addAutoResize() {
 	});
 }
 
-const textarea = document.querySelector('.js-textarea');
+function findElements() {
+	textarea = document.querySelector('.js-textarea');
+}
 
-textarea.addEventListener('input', addAutoResize);
+function subscribe() {
+	textarea.addEventListener('input', addAutoResize);
+}
+
+function init() {
+	findElements();
+	subscribe();
+}
+
+init();

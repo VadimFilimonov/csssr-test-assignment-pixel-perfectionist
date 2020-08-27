@@ -1,32 +1,32 @@
 .radiobutton {
 	position: relative;
 	padding-left: 32px;
-	font-family: $font-title;
+	font-family: $font-text;
 	font-weight: 700;
 	font-size: 20px;
 	line-height: 1.25;
-	color: #000;
+	color: $black;
 	cursor: pointer;
+}
 
-	&__pseudo-input {
-		position: absolute;
-		left: 0;
-		top: 50%;
-		display: block;
-		width: 28px;
-		height: 28px;
-		background-image: url("../images/radiobutton.png");
-		background-position: 50% 50%;
-		background-size: contain;
-		transform: translateY(-50%);
-	}
+.radiobutton__pseudo-input {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-image: url("../images/radiobutton.png");
+	background-position: 50% 50%;
+	background-size: contain;
+	transform: translateY(-50%);
+}
 
-	&__input:checked + &__pseudo-input {
-		background-image: url("../images/radiobutton-active.png");
-	}
+.radiobutton__input:checked + .radiobutton__pseudo-input {
+	background-image: url("../images/radiobutton-active.png");
+}
 
-	&__input:focus ~ &__text {
-		text-decoration: underline;
-		text-decoration-color: $color-accent;
-	}
+.radiobutton__input:focus + .radiobutton__text {
+	text-decoration: underline;
+	text-decoration-color: $color-accent;
 }

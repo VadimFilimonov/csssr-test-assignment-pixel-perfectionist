@@ -1,10 +1,11 @@
-let gulp = require('gulp');
-let gulpLoadPlugins = require('gulp-load-plugins');
-let yargs = require('yargs');
-let path = require('path');
-let webpackConfig = require('./webpack.config');
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
+const yargs = require('yargs');
+const path = require('path');
+const webpackConfig = require('./webpack.config');
 
 let emittyPug;
+
 let errorHandler;
 
 let argv = yargs.default({
@@ -125,53 +126,6 @@ gulp.task('images', () => {
 	return gulp.src('app/images/**/*.*')
 		.pipe($.if(argv.cache, $.newer('dist/images')))
 		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('dist/images'));
-});
-
-gulp.task('sprites:png', () => {
-	const spritesData = gulp.src('app/images/sprites/png/*.png')
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.spritesmith({
-			cssName: '_sprites.scss',
-			cssTemplate: 'app/scss/_sprites.hbs',
-			imgName: 'sprites.png',
-			retinaImgName: 'sprites@2x.png',
-			retinaSrcFilter: 'app/images/sprites/png/*@2x.png',
-			padding: 2,
-		}));
-
-	return $.mergeStream(
-		spritesData.img
-			.pipe($.plumber({
-				errorHandler,
-			}))
-			.pipe($.vinylBuffer())
-			.pipe($.imagemin())
-			.pipe(gulp.dest('dist/images')),
-		spritesData.css
-			.pipe(gulp.dest('app/scss'))
-	);
-});
-
-gulp.task('sprites:svg', () => {
-	return gulp.src('app/images/sprites/svg/*.svg')
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.svgmin(svgoConfig()))
-		.pipe($.svgstore())
-		.pipe($.if(!argv.minifySvg, $.replace(/^\t+$/gm, '')))
-		.pipe($.if(!argv.minifySvg, $.replace(/\n{2,}/g, '\n')))
-		.pipe($.if(!argv.minifySvg, $.replace('?><!', '?>\n<!')))
-		.pipe($.if(!argv.minifySvg, $.replace('><svg', '>\n<svg')))
-		.pipe($.if(!argv.minifySvg, $.replace('><defs', '>\n\t<defs')))
-		.pipe($.if(!argv.minifySvg, $.replace('><symbol', '>\n<symbol')))
-		.pipe($.if(!argv.minifySvg, $.replace('></svg', '>\n</svg')))
-		.pipe($.rename('sprites.svg'))
 		.pipe(gulp.dest('dist/images'));
 });
 
@@ -346,13 +300,6 @@ gulp.task('watch', () => {
 	gulp.watch('app/images/**/*.*', gulp.series('images'));
 
 	gulp.watch([
-		'app/images/sprites/png/*.png',
-		'app/scss/_sprites.hbs',
-	], gulp.series('sprites:png'));
-
-	gulp.watch('app/images/sprites/svg/*.svg', gulp.series('sprites:svg'));
-
-	gulp.watch([
 		'app/*.pug',
 		'app/pug/**/*.pug',
 	], {
@@ -438,8 +385,6 @@ gulp.task('lint', gulp.series(
 gulp.task('dist', gulp.parallel(
 	'copy',
 	'images',
-	'sprites:png',
-	'sprites:svg',
 	'pug',
 	'scss',
 	'js'

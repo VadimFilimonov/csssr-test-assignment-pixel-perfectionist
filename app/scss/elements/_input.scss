@@ -12,7 +12,7 @@ input[type="password"] {
 	background-color: transparent;
 
 	&::placeholder {
-		color: #231f20;
+		color: $color-input;
 	}
 
 	&:focus {
@@ -21,7 +21,7 @@ input[type="password"] {
 }
 
 input[type="text"]::placeholder {
-	color: #231f20;
+	color: $color-input;
 }
 
 textarea {

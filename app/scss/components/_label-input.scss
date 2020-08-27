@@ -1,22 +1,22 @@
 .label-input {
 	display: flex;
 	align-items: flex-end;
+}
 
-	&__label {
-		margin-right: 15px;
-		font-family: $font-title;
-		font-weight: 700;
-		font-size: 22px;
-		line-height: 1;
-		color: $color-title;
-	}
+.label-input__label {
+	margin-right: 15px;
+	font-family: $font-text;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 1;
+	color: $color-title;
+}
 
-	&__input {
-		flex-grow: 1;
+.label-input__input {
+	flex-grow: 1;
+}
 
-		&--small {
-			flex-grow: 0;
-			max-width: 205px;
-		}
-	}
+.label-input__input--small {
+	flex-grow: 0;
+	max-width: 205px;
 }
