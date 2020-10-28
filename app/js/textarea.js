@@ -1,8 +1,7 @@
 let textarea;
 
-function addAutoResize() {
+const addAutoResize = () => {
 	document.querySelectorAll('[data-autoresize]').forEach((element) => {
-		element.style.boxSizing = 'border-box';
 		const offset = element.offsetHeight - element.clientHeight;
 
 		element.addEventListener('input', ({target}) => {
@@ -11,19 +10,17 @@ function addAutoResize() {
 		});
 		element.removeAttribute('data-autoresize');
 	});
-}
+};
 
-function findElements() {
+const findElements = () => {
 	textarea = document.querySelector('.js-textarea');
-}
+};
 
-function subscribe() {
+const subscribe = () => {
 	textarea.addEventListener('input', addAutoResize);
-}
+};
 
-function init() {
+export default () => {
 	findElements();
 	subscribe();
-}
-
-init();
+};
