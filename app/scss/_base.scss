@@ -1,9 +1,121 @@
+@mixin media-phone {
+	@media screen and (max-width: 1119px) {
+		@content;
+	}
+}
+
+@font-face {
+	src: url("../fonts/courier-new.ttf") format("truetype");
+	font-family: "Courier New";
+	font-weight: 400;
+	font-style: normal;
+}
+
 *,
 *::before,
 *::after {
+	outline: none;
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
+	font-family: "PT Sans", "arial", sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #3d3d3d;
+	background-color: #797979;
 }
+
+h1 {
+	margin: 40px 0 60px;
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	margin: 40px 0 15px;
+	width: 100%;
+	font-size: 24px;
+	line-height: 1;
+	color: #2f1b15;
+}
+
+a {
+	color: #1f5f97;
+}
+
+label {
+	position: relative;
+	display: block;
+	font-weight: 700;
+	color: #2f1b15;
+}
+
+input {
+	appearance: none;
+	position: relative;
+	margin: 0;
+	border: none;
+	border-bottom: 3px solid #2f1b15;
+	padding: 0 0 10px;
+	font-family: "Courier New", monospace;
+	font-size: 30px;
+	line-height: 1;
+	color: #2f1b15;
+	background: none;
+
+	&:focus {
+		border-color: #2c448b;
+	}
+
+	@include media-phone {
+		font-size: 16px;
+	}
+}
+
+input::placeholder {
+	color: #231f20;
+}
+
+textarea {
+	overflow: hidden;
+	margin: 40px 0 0;
+	border: none;
+	padding: 0;
+	width: 100%;
+	font-family: "Courier New", monospace;
+	font-size: 30px;
+	line-height: 2;
+	color: inherit;
+	background-image: url("../images/line.png");
+	background-position: -5px 80px;
+	background-repeat: repeat-y;
+	background-color: transparent;
+	transition: 0.2s ease;
+	resize: none;
+}
+
+.stamp {
+	position: absolute;
+	right: 60px;
+	top: 60px;
+
+	@include media-phone {
+		position: static;
+	}
+}
+
+/* stylelint-disable declaration-no-important */
+
+.visually-hidden {
+	position: absolute !important;
+	overflow: hidden;
+	border: 0 !important;
+	padding: 0 !important;
+	width: 1px !important;
+	height: 1px !important;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* stylelint-enable declaration-no-important */

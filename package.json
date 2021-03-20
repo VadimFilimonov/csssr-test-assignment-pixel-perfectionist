@@ -1,12 +1,9 @@
 {
-	"name": "ninelines-template",
-	"version": "2.5.0",
-	"description": "Шаблон для разработки сайтов",
+	"name": "csssr-test-assignment-pixel-perfectionist",
 	"scripts": {
 		"start": "gulp",
 		"build": "gulp dist"
 	},
-	"author": "Dmitry Artemov <d.artemov@9-lines.com>",
 	"license": "ISC",
 	"devDependencies": {
 		"@babel/core": "7.1.2",
@@ -37,9 +34,6 @@
 		"gulp-replace": "1.0.0",
 		"gulp-sass": "4.0.2",
 		"gulp-sourcemaps": "2.6.4",
-		"gulp-svgmin": "2.1.0",
-		"gulp-svgstore": "7.0.0",
-		"gulp-zip": "4.2.0",
 		"gulp.spritesmith": "6.9.0",
 		"imagemin-mozjpeg": "8.0.0",
 		"merge-stream": "1.0.1",
@@ -55,7 +49,6 @@
 		"yargs": "12.0.2"
 	},
 	"dependencies": {
-		"@babel/polyfill": "7.0.0",
-		"normalize-css": "2.3.1"
+		"@babel/polyfill": "7.0.0"
 	}
 }
