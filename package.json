@@ -2,7 +2,9 @@
 	"name": "csssr-test-assignment-pixel-perfectionist",
 	"scripts": {
 		"start": "gulp",
-		"build": "gulp dist"
+		"build": "gulp dist",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"license": "ISC",
 	"devDependencies": {
@@ -17,7 +19,9 @@
 		"browser-sync": "2.26.3",
 		"connect-history-api-fallback": "1.5.0",
 		"cssnano": "4.1.7",
+		"editorconfig-checker": "4.0.1",
 		"emitty": "1.4.0",
+		"gh-pages": "3.1.0",
 		"gulp": "4.0.0",
 		"gulp-debug": "4.0.0",
 		"gulp-eslint": "5.0.0",
