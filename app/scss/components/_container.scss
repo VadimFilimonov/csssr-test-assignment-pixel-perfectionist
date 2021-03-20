@@ -1,19 +1,16 @@
 .container {
-	background-color: #797979;
-}
-
-.container__inner {
 	position: relative;
-	margin-right: auto;
-	margin-left: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
 	padding: 70px 120px 95px 110px;
 	max-width: 1000px;
 	background-image: url("../images/background.jpg");
-	background-position: 50% 0%;
 	background-repeat: repeat-y;
-	background-color: #eccc99;
-}
 
-.container__header {
-	margin-bottom: 40px;
+	@include media-phone {
+		padding: 30px;
+	}
 }

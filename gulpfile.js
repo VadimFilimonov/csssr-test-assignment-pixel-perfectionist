@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const yargs = require('yargs');
-const path = require('path');
 const webpackConfig = require('./webpack.config');
 
 let emittyPug;
@@ -17,7 +16,6 @@ let argv = yargs.default({
 	minifyHtml: null,
 	minifyCss: null,
 	minifyJs: null,
-	minifySvg: null,
 	notify: true,
 	open: true,
 	port: 3000,
@@ -29,7 +27,6 @@ argv.minify = !!argv.minify;
 argv.minifyHtml = argv.minifyHtml !== null ? !!argv.minifyHtml : argv.minify;
 argv.minifyCss = argv.minifyCss !== null ? !!argv.minifyCss : argv.minify;
 argv.minifyJs = argv.minifyJs !== null ? !!argv.minifyJs : argv.minify;
-argv.minifySvg = argv.minifySvg !== null ? !!argv.minifySvg : argv.minify;
 
 if (argv.ci) {
 	argv.cache = false;
@@ -76,36 +73,6 @@ if (argv.throwErrors) {
 	errorHandler = $.notify.onError('<%= error.message %>');
 } else {
 	errorHandler = null;
-}
-
-function svgoConfig(minify = argv.minifySvg) {
-	return (file) => {
-		let filename = path.basename(file.relative, path.extname(file.relative));
-
-		return {
-			js2svg: {
-				pretty: !minify,
-				indent: '\t',
-			},
-			plugins: [
-				{
-					cleanupIDs: {
-						minify: true,
-						prefix: `${filename}-`,
-					},
-				},
-				{
-					removeTitle: true,
-				},
-				{
-					removeViewBox: false,
-				},
-				{
-					sortAttrs: true,
-				},
-			],
-		};
-	};
 }
 
 gulp.task('copy', () => {
@@ -224,7 +191,6 @@ gulp.task('lint:pug', () => {
 gulp.task('lint:scss', () => {
 	return gulp.src([
 		'app/scss/**/*.scss',
-		'!app/scss/vendor/**/*.scss',
 	])
 		.pipe($.plumber({
 			errorHandler,
@@ -244,7 +210,6 @@ gulp.task('lint:js', () => {
 	return gulp.src([
 		'*.js',
 		'app/js/**/*.js',
-		'!app/js/vendor/**/*.js',
 	], {
 		base: '.',
 	})
@@ -276,18 +241,6 @@ gulp.task('optimize:images', () => {
 				quality: 80,
 			}),
 		]))
-		.pipe(gulp.dest('app/images'));
-});
-
-gulp.task('optimize:svg', () => {
-	return gulp.src('app/images/**/*.svg', {
-		base: 'app/images',
-	})
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.svgmin(svgoConfig(false)))
 		.pipe(gulp.dest('app/images'));
 });
 
@@ -339,41 +292,6 @@ gulp.task('serve', () => {
 				middleware,
 			},
 		});
-});
-
-gulp.task('zip', () => {
-	// eslint-disable-next-line global-require
-	let name = require('./package').name;
-	let now = new Date();
-	let year = now.getFullYear().toString().padStart(2, '0');
-	let month = (now.getMonth() + 1).toString().padStart(2, '0');
-	let day = now.getDate().toString().padStart(2, '0');
-	let hours = now.getHours().toString().padStart(2, '0');
-	let minutes = now.getMinutes().toString().padStart(2, '0');
-
-	return gulp.src([
-		'dist/**',
-		'app/**',
-		'.babelrc',
-		'.editorconfig',
-		'.eslintignore',
-		'.eslintrc',
-		'.gitignore',
-		'.npmrc',
-		'.stylelintignore',
-		'.stylelintrc',
-		'*.js',
-		'*.json',
-		'*.md',
-		'*.yml',
-		'!package-lock.json',
-		'!zip/**',
-	], {
-		base: '.',
-		dot: true,
-	})
-		.pipe($.zip(`${name}_${year}-${month}-${day}_${hours}-${minutes}.zip`))
-		.pipe(gulp.dest('zip'));
 });
 
 gulp.task('lint', gulp.series(

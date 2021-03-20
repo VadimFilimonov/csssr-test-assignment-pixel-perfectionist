@@ -4,39 +4,37 @@ let slides;
 
 const findElements = () => {
 	range = document.querySelector('.slider__range');
-	slides = document.querySelectorAll('.slider__item');
+	slides = [].slice.call(document.querySelectorAll('.slider__item'))
+		.map((slide) => slide.querySelector('input'));
 };
 
-const isFirst = () => range.value > 0 && range.value < 38;
+const isFirst = () => range.value >= 0 && range.value < 38;
 const isSecond = () => range.value >= 38 && range.value < 99;
 const isThird = () => range.value >= 99 && range.value < 165;
 const isFourh = () => range.value >= 165;
 
-const onClick = (item) => {
-	range.value = item.querySelector('input').dataset.position;
+const onSlideInput = ({currentTarget}) => {
+	range.value = currentTarget.value;
 };
 
-const onInput = () => {
+const onRangeInput = () => {
 	if (isFirst()) {
-		slides[0].querySelector('input').checked = true;
+		slides[0].checked = true;
 	} else if (isSecond()) {
-		slides[1].querySelector('input').checked = true;
-	} if (isThird()) {
-		slides[2].querySelector('input').checked = true;
+		slides[1].checked = true;
+	} else if (isThird()) {
+		slides[2].checked = true;
 	} else if (isFourh()) {
-		slides[3].querySelector('input').checked = true;
+		slides[3].checked = true;
 	}
 };
 
 const subscribe = () => {
-	range.addEventListener('input', onInput);
-	slides.forEach((slide) => {
-		slide.addEventListener('click', () => onClick(slide));
-	});
+	range.addEventListener('input', onRangeInput);
+	slides.forEach((slide) => slide.addEventListener('input', onSlideInput));
 };
 
 export default () => {
 	findElements();
 	subscribe();
 };
-

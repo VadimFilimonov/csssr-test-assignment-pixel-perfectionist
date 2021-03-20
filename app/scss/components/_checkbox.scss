@@ -1,23 +1,27 @@
-.checkbox {
-	position: relative;
-	padding-left: 32px;
-	font-family: $font-text;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 1.25;
-	color: $black;
-	cursor: pointer;
+.checkboxes-column {
+	margin-top: 35px;
+
+	@include media-phone {
+		margin: 0;
+		width: 100%;
+
+		h2 + & {
+			margin-top: 30px;
+		}
+	}
 }
 
-.checkbox a {
-	color: $color-accent;
+.checkbox {
+	margin-bottom: 15px;
+	padding-left: 32px;
+	font-size: 20px;
+	line-height: 1.25;
 }
 
 .checkbox__pseudo-input {
 	position: absolute;
 	left: 0;
 	top: 50%;
-	display: block;
 	width: 19px;
 	height: 18px;
 	background-image: url("../images/checkbox.png");
@@ -26,20 +30,14 @@
 	transform: translateY(-50%);
 }
 
-.checkbox__input:checked + .checkbox__pseudo-input::before {
+input:checked + .checkbox__pseudo-input::before {
 	content: "";
 	position: absolute;
 	right: -5px;
 	bottom: 2px;
-	display: block;
 	width: 21px;
 	height: 27px;
 	background-image: url("../images/checkbox-tick.png");
-}
-
-.checkbox__input:focus ~ .checkbox__text {
-	text-decoration: underline;
-	text-decoration-color: $color-accent;
 }
 
 .checkbox__text span {
