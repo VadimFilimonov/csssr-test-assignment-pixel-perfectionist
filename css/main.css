@@ -120,6 +120,9 @@ textarea {
 
 /* stylelint-enable declaration-no-important */
 .checkboxes-column {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
   margin-top: 35px; }
   @media screen and (max-width: 1119px) {
     .checkboxes-column {
